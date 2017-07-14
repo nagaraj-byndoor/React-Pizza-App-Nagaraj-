@@ -20,7 +20,7 @@ describe('<Header /> Component', () => {
     });
 
     it('should have header text', () => {
-        const headerText = ' Pizza Corner';
+        const headerText = ' Pizza point';
         expect(renderedElement.props().children.props.children.props.children).to.equal(headerText)
     });
 });

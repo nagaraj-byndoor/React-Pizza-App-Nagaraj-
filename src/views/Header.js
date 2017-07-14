@@ -5,7 +5,7 @@ export class Header extends Component {
         return (
         <div className="panel panel-primary">	
             <div className="panel-heading">
-                <div className="panel-title"> Pizza Corner</div>
+                <div className="panel-title"> Pizza point</div>
             </div>
         </div>
         );

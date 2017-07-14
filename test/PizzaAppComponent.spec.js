@@ -49,7 +49,7 @@ describe('<PizzaAppComponent /> Component', () => {
 
         describe('when app is loaded', function () {
             it('should show pizza container', function () {
-                renderedElement.setState({isLoading: false});
+                renderedElement.setState({loading: false});
                 expect(renderedElement.props().children[1].props.children.type).to.equal(PizzaContainer);
             });
         });

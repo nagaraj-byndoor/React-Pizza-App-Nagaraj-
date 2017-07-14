@@ -16,14 +16,14 @@ describe('<PizzaContainer /> Component', () => {
     });
 
     it('should have pizza list', function () {
-        expect(renderedElement.state('pizzasList')).to.equal(testProps.pizza);
+        expect(renderedElement.state('pizzaItems')).to.equal(testProps.pizza);
     });
 
     it('should div element', () => {
         expect(renderedElement.props().children[0].type).to.equal('div');
     });
 
-     describe('filter items', function () {
+     describe('filter pizza items', function () {
             let filterElement;
 
             beforeEach(function () {
@@ -44,7 +44,7 @@ describe('<PizzaContainer /> Component', () => {
                  expect(filterElement.props.children[2].props.children.type).to.equal('button');
             });
             it('should have sort button btn btn-primary ', () => {
-                 expect(filterElement.props.children[2].props.children.props.className).to.equal('btn btn-primary');
+                 expect(filterElement.props.children[2].props.children.props.className).to.equal('btn btn-default');
             });
         });
 
@@ -56,7 +56,7 @@ describe('<PizzaContainer /> Component', () => {
         describe('sort items', function () {     
             it('should sort items', function () {
                 const sortedItemList = ['veg-pizza', 'non-veg-pizza'];
-                expect(renderedElement.state('pizzasList')).to.equal(sortedItemList);
+                expect(renderedElement.state('pizzaItems')).to.equal(sortedItemList);
             });
     });
 });

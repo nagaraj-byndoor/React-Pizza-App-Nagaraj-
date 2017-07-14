@@ -1,32 +1,30 @@
 import React, {Component} from 'react';
-
 import {Header} from './views/Header';
 import {PizzaContainer} from './views/PizzaContainer';
 import {Footer} from './views/Footer';
-
-import {fetch} from './services/fetch';
+import {fetch} from './services/PizzaService';
 
 function getPizzaList() {
    //Fetching the JSON data from fetch service. 
     return fetch() 
-        .then(function (response) {
+        .then((response)=> 
             self.setState({
-                            pizzasList: response.pizzas, 
-                            isLoading: !(response.pizzas.length)
-                        });
-        });
+                            pizzaItems: response.pizzas, 
+                            loading: !(response.pizzas.length)
+                        })
+        )
 }
 
 export class PizzaAppComponent extends Component {
     constructor() {
         super();
         this.state = {
-            pizzasList: [],
-            isLoading: true
+            pizzaItems: [],
+            loading: true
         };
     }
 
-//Setting the timeout 2 second for Loading..
+    //Setting the timeout 2 second for Loading..
     componentDidMount() {
         self = this;
         global.setTimeout(() => {
@@ -34,26 +32,26 @@ export class PizzaAppComponent extends Component {
      },2000);
     }
 
-//Displaying the Pizza List.
+    //Displaying the Pizza List.
     renderPizzaPage() {
         return (
           <div className="container panel panel-default" style={{height: '570px'}}>
               <Header/>
               <div className="panel-body" style={{height: '500px'}}>  
-                    <PizzaContainer pizza={this.state.pizzasList}/>
+                    <PizzaContainer pizza={this.state.pizzaItems}/>
               </div>
               <Footer/>
           </div>
         );
     }
 
-//Displaying the text Loading...
+    //Displaying the text Loading...
     renderLoading() {    
         return (
           <div className="container panel panel-default" style={{height: '570px'}}>
               <Header/>
               <div className="panel-body" style={{height: '500px'}}>  
-                  <h3><center><i>Loading...</i></center></h3>
+                    <h3><center><i>Loading...</i></center></h3>
               </div>
               <Footer/>
           </div>
@@ -61,8 +59,8 @@ export class PizzaAppComponent extends Component {
     }
 
     render() {
-        const isLoading = this.state.isLoading;
-        if(isLoading){
+        const loading = this.state.loading;
+        if(loading){
           return this.renderLoading();
         }
         else{

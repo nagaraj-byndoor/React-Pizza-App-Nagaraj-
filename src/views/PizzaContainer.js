@@ -3,47 +3,42 @@ import React, {Component} from 'react';
 //Sorting in Ascending and Descending order.
 function sortAscAndDesc() {
     const PizzaArray = this;
-    this.isAscending = !this.isAscending;       
-    return PizzaArray.sort(function(nameA, nameB) {
-        if (nameA > nameB ) {
-            return (PizzaArray.isAscending ? 1 : -1);
-        }
-        if (nameA < nameB ) {
-            return (PizzaArray.isAscending ? -1 : 1);
-        }
-        // pizza names must be equal
-        return 0;
-    });        
+    this.isPizzaAsc = !this.isPizzaAsc;       
+    
+    if(this.isPizzaAsc)
+         return PizzaArray.sort((nameA, nameB)=>nameA.toLowerCase().localeCompare(nameB.toLowerCase()))
+    else
+         return PizzaArray.reverse((nameA, nameB)=>nameA.toLowerCase().localeCompare(nameB.toLowerCase()))
 }
 
 //Filtering the Pizza Array list
-function getFilteredData(pizzaArray, searchData) {
-  return pizzaArray.filter((el) => el.toLowerCase().indexOf((searchData.target.value).toLowerCase()) > -1)
+function getFilteredData(pizzaArray, searchPizza) {
+  return pizzaArray.filter((pizzaName) => pizzaName.toLowerCase().indexOf((searchPizza.target.value).toLowerCase()) > -1)
 }
+
 
 export class PizzaContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            changedPizzasList: props.pizza,
-            pizzasList: props.pizza
+            changedPizzaItems: props.pizza,
+            pizzaItems: props.pizza
         }
-}
+    }
 
-
-//Filtering the Pizza List.
-    filterPizza(searchData) {
-        this.state.pizzasList = this.state.changedPizzasList;
+    //Filtering the Pizza List.
+    filterPizzaItems(searchPizza) {
+        this.state.pizzaItems = this.state.changedPizzaItems;
         this.setState({
-            pizzasList: getFilteredData(this.state.pizzasList, searchData)
+            pizzaItems: getFilteredData(this.state.pizzaItems, searchPizza)
         });
     }
 
-//Sorting the pizza list.
-    sortPizzaList() {
-        this.state.pizzasList.sortAscAndDesc = sortAscAndDesc;
+   //Sorting the pizza list.
+    sortPizzaItems() {
+        this.state.pizzaItems.sortAscAndDesc = sortAscAndDesc;
         this.setState({
-            pizzasList: this.state.pizzasList.sortAscAndDesc()
+            pizzaItems: this.state.pizzaItems.sortAscAndDesc()
         });
     }
 
@@ -59,7 +54,7 @@ export class PizzaContainer extends Component {
                                              type="text"
                                              className="form-control"
                                              placeholder ="Search for Pizzas"
-                                             onKeyUp={this.filterPizza.bind(this)}
+                                             onKeyUp={this.filterPizzaItems.bind(this)}
                                         />
                                         <div className="input-group-addon">
                                             <span className="glyphicon glyphicon-search"/>
@@ -69,11 +64,12 @@ export class PizzaContainer extends Component {
                     </div>
                     
                     <div className="col-sm-3">                       
+                        {/* Button on click sorts in ascending and descending order*/}
                         <button
                             type="button"
-                            className="btn btn-primary"
-                            onClick={this.sortPizzaList.bind(this)}>
-                            sort
+                            className="btn btn-default"
+                            onClick={this.sortPizzaItems.bind(this)}>
+                            Sort
                         </button>
                     </div>
                 </div>
@@ -81,7 +77,7 @@ export class PizzaContainer extends Component {
                 <div className="panel-body">
                     <ul className="list-group-item">
                         {
-                            this.state.pizzasList.map(function(item, index) {
+                            this.state.pizzaItems.map(function(item, index) {
                                 return (<li className="list-group-item list-group-item-info" key={index}>{item}</li>)
                             })
                         }
