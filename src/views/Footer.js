@@ -7,7 +7,7 @@ export class Footer extends Component {
         return (
             <div className="panel-footer">
               	<div>
-              		<center>This app is created in react for front-end test for Deere & Co.</center>
+              		<center>This app reated for ReactJS front-end test</center>
               	</div>
             </div>
         );

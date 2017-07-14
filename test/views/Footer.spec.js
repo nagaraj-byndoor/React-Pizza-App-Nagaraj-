@@ -20,7 +20,7 @@ describe('<Footer /> Component', () => {
     });
 
     it('should have footer text', () => {
-        expect(renderedElement.props().children.props.children.props.children).to.equal('This app is created in react for front-end test for Deere & Co.');
+        expect(renderedElement.props().children.props.children.props.children).to.equal('This app reated for ReactJS front-end test');
     });
 
 });
