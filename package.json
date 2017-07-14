@@ -1,14 +1,14 @@
 {
   "name": "front-end-test",
   "version": "1.0.0",
-  "description": "A test for prospective front-end developers",
+  "description": "Fornt end test on ReactJS",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "mocha test"
   },
-  "author": "John Deere",
-  "license": "Copyright © 2016 Deere & Company",
+  "author": "nagaraja.n@sonata-software.com",
+  "license": "public",
   "dependencies": {
     "isomorphic-fetch": "2.2.1",
     "react": "15.3.2",
