@@ -5,22 +5,22 @@ import {shallow} from 'enzyme';
 import {Header} from '../../src/views/Header';
 
 describe('<Header /> Component', () => {
-    let renderedElement;
+    let headerElement;
 
     beforeEach(() => {
-        renderedElement = shallow(<Header/>);
+        headerElement = shallow(<Header/>);
     });
 
-    it('should have panel heading primary', () => {
-        expect(renderedElement.props().className).to.equal('panel panel-primary');
+    it('header should have panel heading primary', () => {
+        expect(headerElement.props().className).to.equal('panel panel-primary');
     });
 
-     it('should have panel headding', () => {
-        expect(renderedElement.props().children.props.className).to.equal('panel-heading');
+     it('header should have panel headding', () => {
+        expect(headerElement.props().children.props.className).to.equal('panel-heading');
     });
 
-    it('should have header text', () => {
+    it('header should have header text', () => {
         const headerText = ' Pizza point';
-        expect(renderedElement.props().children.props.children.props.children).to.equal(headerText)
+        expect(headerElement.props().children.props.children.props.children).to.equal(headerText)
     });
 });

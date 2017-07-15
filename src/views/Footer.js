@@ -6,7 +6,7 @@ import React, {Component} from 'react';
         return (
             <div className="panel-footer">
               	<div>
-              		<center>This app reated for ReactJS front-end test</center>
+              		<center>ReactJS POC</center>
               	</div>
             </div>
         );

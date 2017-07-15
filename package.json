@@ -1,13 +1,13 @@
 {
-  "name": "front-end-test",
+  "name": "Sonata-software-Ltd",
   "version": "1.0.0",
-  "description": "Fornt end test on ReactJS",
+  "description": "ReactJS POC",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "mocha test"
   },
-  "author": "nagaraja.n@sonata-software.com",
+  "author": "Sonata Aquent",
   "license": "public",
   "dependencies": {
     "isomorphic-fetch": "2.2.1",

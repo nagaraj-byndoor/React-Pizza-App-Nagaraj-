@@ -1,5 +1,5 @@
 var webpack = require('webpack'),
-    port = 8092,
+    port = 8080,
     config = {
         entry: [
             'webpack-dev-server/client?http://localhost:' + port,

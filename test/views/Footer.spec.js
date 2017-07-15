@@ -5,22 +5,22 @@ import {shallow} from 'enzyme';
 import {Footer} from '../../src/views/Footer';
 
 describe('<Footer /> Component', () => {
-    let renderedElement;
+    let footerElement;
 
     beforeEach(() => {
-        renderedElement = shallow(<Footer/>);
+        footerElement = shallow(<Footer/>);
     });
 
-    it('should have panel footer', () => {
-        expect(renderedElement.props().className).to.equal('panel-footer');
+    it('footer should have panel footer', () => {
+        expect(footerElement.props().className).to.equal('panel-footer');
     });
 
-    it('should have center tag', () => {
-        expect(renderedElement.props().children.props.children.type).to.equal('center');
+    it('footer should have center tag', () => {
+        expect(footerElement.props().children.props.children.type).to.equal('center');
     });
 
-    it('should have footer text', () => {
-        expect(renderedElement.props().children.props.children.props.children).to.equal('This app reated for ReactJS front-end test');
+    it('footer should have footer text', () => {
+        expect(footerElement.props().children.props.children.props.children).to.equal('ReactJS POC');
     });
 
 });
